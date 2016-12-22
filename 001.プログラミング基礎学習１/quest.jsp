@@ -29,16 +29,14 @@ if(reqA == 1){
 }
 
 //no.2
-<br>
 int wari =reqB/6;   
 out.println("総額"+reqB+"円　"+"単価"+wari+"円");
 
 //no.3
-<br>
-if(reqC <3000){
-    out.println("ポイント４％付与");
-}else if(reqC <5000){
+if(reqC <5000){
     out.println("ポイント５％付与");
+}else if(reqC <3000){
+    out.println("ポイント４％付与");
           
 }
 %>
