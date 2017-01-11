@@ -3,22 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.mypackage.sample;
+package org.camp.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Random;
-
 
 /**
  *
  * @author yoko
  */
-public class TestServlet extends HttpServlet {
+public class FortuneTelling extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,29 +32,28 @@ public class TestServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            
+        
             //運勢
             String LuckList[] = {"大吉","中吉","小吉","吉","半吉","末吉","末小吉","凶","小凶","半凶","末凶","大凶"};
             //乱数クラス生成
-            Random rand = new Random();
+            Random rand = new Random();    //randは変数名
             //乱数取得
-            Integer index = rand.nextInt(LuckList.length);
-            
-         try{
+            Integer index = rand.nextInt(LuckList.length);    //indexは変数名
+        
+        try{//ユーザーに表示する部分（html）
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet TestServlet</title>");            
+            out.println("<title>Servlet FortuneTelling</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet TestServlet at " + request.getContextPath() + "</h1>");
+            out.println("運勢は"+LuckList[index]);   //LuckListのindex番目の数を取得
             out.println("</body>");
             out.println("</html>");
         }finally{
-             out.close();
-         }
-    
+            out.close();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
